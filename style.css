@@ -1,0 +1,23 @@
+const openCaseBtn = document.getElementById('openCaseBtn');
+const resultDiv = document.getElementById('result');
+
+// Пример кейсов (скины)
+const cases = [
+  { name: "Desert Eagle | Blaze", rarity: "Rare" },
+  { name: "AK-47 | Redline", rarity: "Epic" },
+  { name: "M4A1 | Golden Dragon", rarity: "Legendary" },
+  { name: "P90 | Trigon", rarity: "Epic" },
+  { name: "Glock-18 | Fade", rarity: "Legendary" },
+  { name: "AWP | Dragon Lore", rarity: "Mythical" },
+];
+
+// Функция выбора случайного кейса
+function getRandomCase() {
+  const randomIndex = Math.floor(Math.random() * cases.length);
+  return cases[randomIndex];
+}
+
+openCaseBtn.addEventListener('click', () => {
+  const caseOpened = getRandomCase();
+  resultDiv.textContent = `Ты получил: ${caseOpened.name} [${caseOpened.rarity}]`;
+});
